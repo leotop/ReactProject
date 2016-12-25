@@ -1,0 +1,60 @@
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+li
+	list-style-type: none
+
+a:link,a:hover
+	text-decoration: none!important
+
+@mixin after
+	&:after
+		content: ''
+		display: block
+		clear: both
+		height: 0
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.6
+	overflow-x: hidden
+	color: black
+input
+	outline: none
+	border: 1px solid #ccc
+	border-radius: 3px
+.wrapper
+	width: 1200px
+	margin-left: auto
+	margin-right: auto
+	overflow: hidden
+button
+	border: 1px solid silver
+	border-radius: 3px
+	background: linear-gradient(to bottom, white 0%, #ccc 50%, white 100%)
+	&:hover
+		background: linear-gradient(to bottom, #2c6cac 0%, #004891 50%, #2c6cac 100%)
+		color: white
+
+.dropdown-toggle

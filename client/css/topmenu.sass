@@ -1,0 +1,32 @@
+.top__menu
+	display: flex
+	margin-top: 30px
+	.main__menu
+		margin-left: 9%
+		li
+			a
+				padding: 6px 10px
+				display: block
+				color: white
+				&:hover
+					text-decoration: none
+					color: #222
+		li
+			display: inline-block
+			margin-left: 4px
+			border: 1px solid silver
+			border-radius: 3px
+			background: linear-gradient(to bottom, #2c6cac 0%, #004891 50%, #2c6cac 100%)
+			font-weight: 600
+			position: relative
+			&:hover
+				background: white
+				cursor: pointer
+				ul
+					display: block
+					left: 0
+				li
+					color: black
+			ul
+				position: absolute
+				display: none

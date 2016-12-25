@@ -1,0 +1,31 @@
+.contacts__container
+    p
+        padding: 0px 20px
+    h2
+        text-align: center
+        font-size: 40px
+        padding: 20px 0px
+    img
+        width: 100%
+    .local__map
+        position: relative
+        &:before
+            content: ''
+            width: 100%
+            height: 12px
+            position: absolute
+            background: linear-gradient(to right, black 0%, #004891 50%, black 100%)
+            top: -12px
+            z-index: 2
+    .yandex__map
+        position: relative
+        overflow: hidden
+        margin-top: 40px
+        &:after
+            content: ''
+            width: 100%
+            height: 12px
+            position: absolute
+            background: linear-gradient(to right, black 0%, #004891 50%, black 100%)
+            bottom: 0
+            z-index: 20

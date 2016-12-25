@@ -1,0 +1,54 @@
+.slider__wrapper
+    position: relative
+    &:before
+        content: ''
+        width: 100%
+        height: 12px
+        position: absolute
+        background: linear-gradient(to right, black 0%, #004891 50%, black 100%)
+        bottom: -13px
+        z-index: 2
+    i
+        z-index: 2
+        position: absolute
+        top: 80px
+        cursor: pointer
+    .fa-chevron-right
+        right: 0
+    .main__slider
+        ul
+        width: 4000px
+        margin-left: -2446px
+        li
+            display: inline-block
+            margin-left: 2px
+            width: 1200px
+            height: 200px
+            position: relative
+            background-color: #cedfff
+            transition: all 1s ease
+        img
+            width: 353px
+            float: right
+        p
+            width: 500px
+            margin: 50px
+            padding: 10px
+            border-radius: 5px
+            box-shadow: 1px 1px 5px #555
+            font-weight: 600
+            background-color: white
+    .ball
+        display: flex
+        position: absolute
+        bottom: 5px
+        right: 48%
+        div
+            width: 13px
+            height: 13px
+            border-radius: 10em
+            background: lighten(teal, 20%)
+            z-index: 2
+            border: 1px solid silver
+            margin-left: 10px
+            cursor: pointer

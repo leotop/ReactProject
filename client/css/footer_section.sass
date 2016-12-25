@@ -1,0 +1,50 @@
+.footer__section
+	margin-top: 10px
+	background: linear-gradient(to right, black 0%, #004891 50%, black 100%);
+	padding-top: 30px
+	color: white
+	clear: both
+	.top__contact
+			display: flex
+			justify-content: space-between
+			p
+				position: relative
+				&:before
+					content: ''
+					width: 70%
+					height: 1px
+					position: absolute
+					background-color: silver
+					bottom: 0
+					left: 0
+
+			li
+				flex-grow: 2
+				display: inline-block
+			font-size: 14px
+			.fa-phone
+				margin-left: 5px
+			i
+				margin-right: 10px
+				color: #a2a2a2
+			span:last-child
+				display: block
+				margin-left: 26px
+				margin-bottom: 10px
+			a
+				color: #8cffff
+				transition: all .4s ease
+				cursor: pointer
+				&:hover
+					color: white
+					text-decoration: none
+			.low__span_one,.low__span_two
+				position: relative
+			.low__span_one
+				right: 5px
+			.low__span_two
+				right: 8px
+.right__block
+	padding: 40px
+	padding-bottom: 10px
+	font-size: 11px
