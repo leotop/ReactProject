@@ -7,7 +7,7 @@ export default class Logo extends React.Component {
     		<div className="logo__container">
     			<div>
                     <a href="/">
-        				<img src="logo.png" alt="Alt" />
+        				<img src="../../public/img/logo/logo.png" alt="Alt" />
     	                <h1>ЕвропАвто</h1>
     	                <p>Интернет-магазин автозапчастей</p>
                     </a>

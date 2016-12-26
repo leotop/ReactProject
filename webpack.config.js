@@ -28,16 +28,11 @@ module.exports = {
             },
             {
                 test: /\.sass$/,
-                loader: "react-hot!style-loader!css-loader!sass-loader!autoprefixer-loader",
+                loader: "react-hot!style-loader!css-loader!sass-loader!",
                 exclude: [/node_modules/, /public/]
             },
             {
-                test: /\.jpg$/,
-                loader: "url-loader?limit=10000&mimetype=image/jpg"
-            },
-            {
-                test: /\.png$/,
-                loader: "url-loader?limit=10000&mimetype=image/png"
+                test: /\.(png|jpg|gif)$/, loader: "url-loader?name=img/[name].[ext]"
             },
             {
                 test: /\.svg/,
