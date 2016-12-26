@@ -1,8 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var NODE_ENV = process.env.NODE_ENV || 'development';
-console.log(NODE_ENV);
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
 
 module.exports = {
     entry: "./client/main.js",
@@ -12,30 +12,36 @@ module.exports = {
         filename: 'bundle.js'
     },
 
-    watch: true,
+    watch: NODE_ENV == 'development',
+
+    // devtool: NODE_ENV == 'development'? 'source-map' : null,
 
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 loader: "react-hot!babel",
-                exclude: [/node_modules/, /public/]
+                exclude: [/node_modules/]
             },
             {
                 test: /\.css$/,
                 loader: "react-hot!style-loader!css-loader!autoprefixer-loader",
-                exclude: [/node_modules/, /public/]
+                exclude: [/node_modules/]
             },
             {
                 test: /\.sass$/,
                 loader: "react-hot!style-loader!css-loader!sass-loader!",
-                exclude: [/node_modules/, /public/]
+                exclude: [/node_modules/]
             },
             {
-                test: /\.jpg$/, loader: "url-loader?mimetype=image/png"
+                test: /\.jpg$/,
+                loader: "url-loader?limit=10000&mimetype=image/jpg"
+
             },
             {
-                test: /\.png$/, loader: "url-loader?mimetype=image/png"
+                test: /\.png$/,
+                loader: "url-loader?limit=10000&mimetype=image/png"
+
             },
             {
                 test: /\.svg/,
@@ -46,9 +52,8 @@ module.exports = {
                 loader: "json-loader"
             }
         ]
-    },
-
-    resolve: {
-        extensions: ['','.js']
     }
 }
+
+
+

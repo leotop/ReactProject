@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const PORT = 80
+const PORT = 3000
 
 
 app.set('port', (process.env.PORT || PORT));

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import img from '../../public/img/abstractia.jpg';
-console.log(img)
+import '../css/logo.sass';
 
 export default class Logo extends React.Component {
 
@@ -10,9 +9,9 @@ export default class Logo extends React.Component {
     		<div className="logo__container">
     			<div>
                     <a href="/">
-        				<img src="../../public/img/fon.jpg" alt="Alt" />
+        				<img src="../../logo.png" alt="Alt" />
     	                <h1>ЕвропАвто</h1>
-    	                <p>Интернет-магазин автозапчастей</p>
+    	                <p>Интернет-магазинs автозапчастей</p>
                     </a>
     			</div>
 

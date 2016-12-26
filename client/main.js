@@ -10,7 +10,9 @@ import Logo from "./components/logo";
 // import Footer from "./containers/footer";
 // import TopMenu from "./containers/topmenu";
 
+import './css/normalize.css'
 import './css/all.sass';
+
 
 const store = configureStore();
 
@@ -20,7 +22,6 @@ class App extends React.Component {
         return (
             <div className="wrapper">
                 <header>
-                    <img src="../public/logo.png" alt="Alt" />
                     <Logo />
                     {/* <TopPannel />
                     <TopMenu />
