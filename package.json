@@ -8,7 +8,7 @@
     "devserver": "webpack-dev-server --debug --hot --devtool  --output-pathinfo --watch --colors --inline --content-base public --port 8080 --host 0.0.0.0",
     "push": "git add . && git commit -m 'rush to push' && git push -u origin master",
     "server": "cd server && nodemon --exec babel-node app.js",
-    "production": "env NODE_ENV=development webpack"
+    "prod": "webpack --optimize-minimize"
   },
   "author": "",
   "license": "ISC",
