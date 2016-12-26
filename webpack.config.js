@@ -32,7 +32,10 @@ module.exports = {
                 exclude: [/node_modules/, /public/]
             },
             {
-                test: /\.(png|jpg|gif)$/, loader: "url-loader?name=img/[name].[ext]"
+                test: /\.jpg$/, loader: "url-loader?mimetype=image/png"
+            },
+            {
+                test: /\.png$/, loader: "url-loader?mimetype=image/png"
             },
             {
                 test: /\.svg/,

@@ -20,7 +20,7 @@ class App extends React.Component {
         return (
             <div className="wrapper">
                 <header>
-                    <img src="../public/img/abstractia.jpg" alt="" />
+                    <img src="../public/logo.png" alt="Alt" />
                     <Logo />
                     {/* <TopPannel />
                     <TopMenu />
