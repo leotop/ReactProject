@@ -1,6 +1,7 @@
 import React from 'react';
 import { Map, Marker, MarkerLayout } from 'yandex-map-react';
 
+import '../css/contacts.sass';
 
 export default class Contacts extends React.Component {
 

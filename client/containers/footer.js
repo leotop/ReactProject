@@ -1,9 +1,9 @@
 import React from 'react';
-
+import '../css/footer_section.sass';
 
 export default class Footer extends React.Component {
 
-   
+
     render() {
         return (
             <div className="footer__section">
@@ -12,8 +12,10 @@ export default class Footer extends React.Component {
                         <div>
                             <p>Контакты:</p>
                             <i className="fa fa-phone" aria-hidden="true"></i>
-                            <span>8 (831) 411-18-65</span>
-                            <span>8 (831) 411-18-65</span>
+                            <span>8-920-11-11-052</span>
+                            <span>8-920-111-52-65</span>
+                            <span>8-920-111-52-64</span>
+                            <span>8-920-111-20-52</span>
                         </div>
                         <div>
                             <i className="fa fa-envelope" aria-hidden="true"></i>
@@ -29,7 +31,7 @@ export default class Footer extends React.Component {
                             <span className="low__span_one" >Сб-вс 10.00 - 17.00</span>
                         </div>
                         <div>
-                                        
+
                         </div>
                     </li>
 
@@ -41,12 +43,12 @@ export default class Footer extends React.Component {
                             <span className="low__span_two" >г. Дзержинск ул.Советская 3</span>
                         </div>
                         <div>
-                            
+
                         </div>
                     </li>
                 </ul>
            		<div className="right__block">© 2004-2016 EuropAuto. All rights reserved.</div>
-            </div>  
+            </div>
         );
     }
 }

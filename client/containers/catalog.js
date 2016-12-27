@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as basketActions  from '../actions/basketActions';
 import CatalogButtons from '../components/catalogbuttons';
 
-
+import '../css/catalog.sass';
 
 class Catalog extends React.Component {
 
@@ -12,7 +12,7 @@ class Catalog extends React.Component {
 	render() {
 		const products = this.props.products;
 		const { addBasket, inputChange, onlyOriginal, sendParams } = this.props.basketActions;
-		let array = Session.get('products') || [];
+		// let array = Session.get('products') || [];
 
 		return (
 			<div className="catalog">
@@ -34,7 +34,7 @@ class Catalog extends React.Component {
 					<li>Корзина</li>
 				</ul>
 
-				{array.length > 0?
+				{/* {array.length > 0?
 					array.map((item, index) => {
 						return <div key={index}>
 									<ul key={index}>
@@ -51,7 +51,7 @@ class Catalog extends React.Component {
 							   </div>
 					})
 						: <div></div>
-				}
+				} */}
 
 			</div>
 

@@ -1,16 +1,13 @@
 import React from 'react';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as basketActions  from '../actions/basketActions';
 
-Meteor.subscribe('tasks');
 
-class Basket extends TrackerReact(React.Component) {
+class Basket extends React.Component {
 
 	render() {
 		const { deleteProduct } = this.props.basketActions
-
 		return (
 			<div className="catalog">
 				<ul className="top__catalog">
@@ -25,7 +22,7 @@ class Basket extends TrackerReact(React.Component) {
 					<li>Удалить</li>
 				</ul>
 
-				{Tasks.find({ userName: Meteor.userId() }).fetch().length > 0?
+				{/* {Tasks.find({ userName: Meteor.userId() }).fetch().length > 0?
 					Tasks.find({ userName: Meteor.userId() }).fetch().map((item, index) => {
 						return <div key={index}>
 									<ul key={index}>
@@ -42,7 +39,7 @@ class Basket extends TrackerReact(React.Component) {
 							   </div>
 					})
 						: <div></div>
-				}
+				} */}
 
 			</div>
 		)

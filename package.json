@@ -5,7 +5,7 @@
   "main": "notes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot --content-base public --port 8080 --host 0.0.0.0",
+    "dev": "webpack-dev-server --debug --hot --devtool --output-pathinfo --watch --colors --inline",
     "push": "git add . && git commit -m 'rush to push' && git push -u origin master",
     "server": "cd server && nodemon --exec babel-node app.js",
     "prod": "webpack --optimize-minimize"
@@ -46,6 +46,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "yandex-map-react": "^1.0.0-beta.13"
   }
 }

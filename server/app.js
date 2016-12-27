@@ -8,6 +8,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// app.use(express.cookieParser());
 app.use(cors());
 
 const PORT = 3000

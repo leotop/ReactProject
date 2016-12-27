@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import '../css/mainpage/main-slider.sass';
 
 export default class MainSlider extends React.Component {
     constructor() {
@@ -36,7 +36,7 @@ export default class MainSlider extends React.Component {
             this.setState({ teal3: '#23f5ff' })
         }
     }
-
+    
 
     handlerSliderRight() {
         setInterval(() => {

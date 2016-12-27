@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
+
 
 
 

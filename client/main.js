@@ -1,35 +1,42 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Logo from "./components/logo";
-// import TopPannel from './containers/toppannel';
-// import Slider from "./containers/slaider";
-// import Premium from "./containers/premium";
-// import Footer from "./containers/footer";
-// import TopMenu from "./containers/topmenu";
+import TopPannel from './containers/toppannel';
+import TopMenu from './containers/topmenu';
+import MainPage from './containers/mainpage';
+import Catalog from './containers/catalog';
+import Shipping from './containers/shipping';
+import Basket from './containers/basket';
+import Contacts from './containers/contacts';
+import Footer from './containers/footer';
+
 
 import './css/normalize.css'
 import './css/all.sass';
+import './css/all_routes_classes.sass';
 
 
 const store = configureStore();
 
 class App extends React.Component {
-
+    
     render() {
         return (
             <div className="wrapper">
                 <header>
                     <Logo />
-                    {/* <TopPannel />
+                    <TopPannel />
                     <TopMenu />
                     <div className="routes__classes">
-                        {this.props.content}
-                    </div> */}
+                        {this.props.children}
+                    </div>
                 </header>
-                {/* <Footer/> */}
+                <Footer/>
             </div>
         );
     }
@@ -37,7 +44,17 @@ class App extends React.Component {
 
 render(
     <Provider store={store}>
-        <App />
+        <Router history={browserHistory}>
+
+            <Route path="/" component={App}>
+                <IndexRoute component={MainPage}/>
+                <Route path="directory" component={Catalog} />
+                <Route path="shipping" component={Shipping} />
+                <Route path="basket" component={Basket} />
+                <Route path="about" component={Contacts} />
+            </Route>
+            {/* <Route path="*" component={No} /> */}
+        </Router>
     </Provider>
     ,document.getElementById('mount-point')
 )

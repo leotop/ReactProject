@@ -1,18 +1,17 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import '../css/logo.sass';
 
 export default class Logo extends React.Component {
-
     render() {
         return (
     		<div className="logo__container">
     			<div>
-                    <a href="/">
+                    <Link to="/">
         				<img src="../../logo.png" alt="Alt" />
-    	                <h1>ЕвропАвто</h1>
-    	                <p>Интернет-магазинs автозапчастей</p>
-                    </a>
+    	                <h1>EuropAuto</h1>
+    	                <p>Интернет-магазин автозапчастей</p>
+                    </Link>
     			</div>
 
                 <div className="contact">
