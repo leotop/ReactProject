@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 import Logo from "./components/logo";
 import TopPannel from './containers/toppannel';
@@ -24,7 +24,7 @@ import './css/all_routes_classes.sass';
 const store = configureStore();
 
 class App extends React.Component {
-    
+
     render() {
         return (
             <div className="wrapper">

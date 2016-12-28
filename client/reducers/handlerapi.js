@@ -16,20 +16,21 @@ export default (state = initialState, action) => {
                 ...state, text: action.payload
             }
         case 'SEND_PARAMS':
+            axios.get('/send')
+            // axios({
+            //     method: 'get',
+            //     url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
+            // })
+            
 
-            axios({
-                method: 'get',
-                url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
-            })
-            .then(response => {
-
-                let Jstring = JSON.stringify(response.data.result.filter((item) => {
-        			if(item.delivery !== 'не известно' && item.stock !== '-') {
-        				return item
-        			}
-        		}))
-                sessionStorage.setItem('products', Jstring );
-            })
+            // .then(response => {
+            //     let Jstring = JSON.stringify(response.data.result.filter((item) => {
+        	// 		if(item.delivery !== 'не известно' && item.stock !== '-') {
+        	// 			return item
+        	// 		}
+        	// 	}))
+            //     sessionStorage.setItem('products', Jstring );
+            // })
             // axios({
             //     method: 'get',
             //     url: `http://www.part-kom.ru/engine/api/v2/search/parts?number=${state.text}`,
@@ -43,18 +44,21 @@ export default (state = initialState, action) => {
             // return {
             //     ...state
             // }
+            return {
+                ...state
+            }
         case 'ONLY_ORIGINAL':
-            axios({
-                method: 'get',
-                url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
-            })
-            .then(response => {
-                // Session.set('products', response.data.result.filter((item) => {
-                //     if(item.nr === state.text.toUpperCase()) {
-                //         return item
-                //     }
-                // }))
-            })
+            // axios({
+            //     method: 'get',
+            //     url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
+            // })
+            // .then(response => {
+            //     // Session.set('products', response.data.result.filter((item) => {
+            //     //     if(item.nr === state.text.toUpperCase()) {
+            //     //         return item
+            //     //     }
+            //     // }))
+            // })
         case 'DELETE':
             console.log('delete')
             return {
