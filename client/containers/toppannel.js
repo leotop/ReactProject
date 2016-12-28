@@ -4,15 +4,20 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as basketActions  from '../actions/basketActions';
 
+
 import '../css/logo.sass';
 import '../css/top-pannel.sass'
 
 
 class TopPannel extends React.Component {
+    componentWillUpdate() {
+        console.log('sdsd')
+    }
     render() {
         let { inputChange } = this.props.basketActions;
-        let { text } = this.props.text;
-        let { sendParams } = this.props.basketActions;
+        let { text, product } = this.props.text;
+        let { sendParams, SendRequest } = this.props.basketActions;
+        console.log(this.props)
         return (
             <div className="logo__container">
                 <div>
@@ -33,7 +38,7 @@ class TopPannel extends React.Component {
                         <div className="search">
                             <i title="Поиск" className="fa fa-search" aria-hidden="true"></i>
                             <input className="input__search" type="text" onChange={inputChange} value={text} placeholder="Введите номер требуемой запчасти" />
-                            <Link to="/directory"><button onClick={sendParams} >Найти деталь</button></Link>
+                            <Link to="/directory"><button onClick={SendRequest} >Найти деталь</button></Link>
                         </div>
 
                         <div className="choice">
