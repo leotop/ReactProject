@@ -12,7 +12,8 @@ class Catalog extends React.Component {
 	render() {
 		const products = this.props.products;
 		const { addBasket, inputChange, onlyOriginal, sendParams } = this.props.basketActions;
-		// let array = Session.get('products') || [];
+		let array = JSON.parse(sessionStorage.getItem('products')) || [];
+		// console.log(JSON.parse(sessionStorage.getItem('products')))
 
 		return (
 			<div className="catalog">
@@ -34,7 +35,7 @@ class Catalog extends React.Component {
 					<li>Корзина</li>
 				</ul>
 
-				{/* {array.length > 0?
+				{array.length > 0?
 					array.map((item, index) => {
 						return <div key={index}>
 									<ul key={index}>
@@ -51,7 +52,7 @@ class Catalog extends React.Component {
 							   </div>
 					})
 						: <div></div>
-				} */}
+				}
 
 			</div>
 

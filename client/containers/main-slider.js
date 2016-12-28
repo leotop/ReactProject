@@ -2,67 +2,101 @@ import React from 'react';
 
 import '../css/mainpage/main-slider.sass';
 
+
+var clear1,
+    clear2,
+    clear3,
+    clear4;
+
+
 export default class MainSlider extends React.Component {
     constructor() {
         super();
         this.state = {
             params: 0,
-            teal1: 'teal',
-            teal2: '#23f5ff',
-            teal3: '#23f5ff'
+            isOpen1: true,
+            isOpen2: false,
+            isOpen3: false,
+            clear: true
         }
-        this.handlerSliderRight = this.handlerSliderRight.bind(this)
-        this.changeColor = this.changeColor.bind(this)
+
+
     }
 
-    componentDidMount() {
-        this.handlerSliderRight()
+    isOpenOne() {
+        this.setState({ isOpen1: true })
+        this.setState({ isOpen2: false })
+        this.setState({ isOpen3: false })
     }
 
-    changeColor() {
-        if(this.state.params > 0) {
-            this.setState({ teal1: '#23f5ff' })
-            this.setState({ teal2: 'teal' })
-            this.setState({ teal3: '#23f5ff' })
-        }
-        if(this.state.params > 1200) {
-            this.setState({ teal1: '#23f5ff' })
-            this.setState({ teal2: '#23f5ff' })
-            this.setState({ teal3: 'teal' })
-        }
-        if(this.state.params === 0) {
-            this.setState({ teal1: 'teal' })
-            this.setState({ teal2: '#23f5ff' })
-            this.setState({ teal3: '#23f5ff' })
-        }
+    isOpenTwo() {
+        this.setState({ isOpen1: false })
+        this.setState({ isOpen2: true })
+        this.setState({ isOpen3: false })
     }
-    
+
+    isOpenThree() {
+        this.setState({ isOpen1: false })
+        this.setState({ isOpen2: false })
+        this.setState({ isOpen3: true })
+    }
+
 
     handlerSliderRight() {
-        setInterval(() => {
             if(this.state.params === 0) {
-                this.setState({ params: this.state.params + 1200 })
+                clear1 = setTimeout(() => {
+                    this.setState({ params: this.state.params + 1200 })
+                    this.isOpenTwo()
+                },5000)
+
+                if(this.state.params <= 1200) {
+                    clear2 = setTimeout(() => {
+                        this.setState({ params: this.state.params + 1200 })
+                        this.isOpenThree()
+                        if(this.state.params === 2400) {
+                            clear3 = setTimeout(() => {
+                                this.setState({ params: this.state.params - 1200 })
+                                this.isOpenTwo()
+                            },5000)
+                            clear4 = setTimeout(() => {
+                                this.setState({ params: this.state.params - 1200 })
+                                this.isOpenOne()
+                                if(this.state.params === 0) {
+                                    this.handlerSliderRight()
+                                }
+                            },10000)
+                        }
+                    },10000)
+                }
             }
-            if(this.state.params > 2400) {
-                this.setState({ params: this.state.params -1200 })
-            }
-            this.changeColor()
-        }, 5000)
+    }
+
+
+    componentWillUnmount() {
+        clearTimeout(clear1)
+        clearTimeout(clear2)
+        clearTimeout(clear3)
+        clearTimeout(clear4)
     }
 
     oneHanlder() {
         this.setState({ params: 0 })
-        this.changeColor()
+        this.isOpenOne()
     }
 
     twoHanlder() {
         this.setState({ params: 1200 })
-        this.changeColor()
+        this.isOpenTwo()
     }
 
     threeHanlder() {
         this.setState({ params: 2400 })
-        this.changeColor()
+        this.isOpenThree()
+    }
+
+    componentDidMount() {
+        this.handlerSliderRight()
+
     }
 
 	render() {
@@ -70,12 +104,11 @@ export default class MainSlider extends React.Component {
 		return (
 			<div className="slider__wrapper">
                 <div className="ball">
-                    <div style={{ "backgroundColor":`${this.state.teal1}` }} onClick={this.oneHanlder.bind(this)}></div>
-                    <div style={{ "backgroundColor":`${this.state.teal2}` }} onClick={this.twoHanlder.bind(this)}></div>
-                    <div style={{ "backgroundColor":`${this.state.teal3}` }} onClick={this.threeHanlder.bind(this)}></div>
+                    <div style={{ "backgroundColor": this.state.isOpen1? 'teal' : '#23f5ff' }} onClick={this.oneHanlder.bind(this)}></div>
+                    <div style={{ "backgroundColor": this.state.isOpen2? 'teal' : '#23f5ff' }} onClick={this.twoHanlder.bind(this)}></div>
+                    <div style={{ "backgroundColor": this.state.isOpen3? 'teal' : '#23f5ff' }} onClick={this.threeHanlder.bind(this)}></div>
                 </div>
-                {/* <i onClick={this.handlerSliderLeft.bind(this)} className="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-                <i onClick={this.handlerSliderRight.bind(this)} className="fa fa-chevron-right fa-2x" aria-hidden="true"></i> */}
+
 				<ul className="main__slider">
                     <li style={{ 'left': `${this.state.params}px` }} className="first__child">
                         <img src="marks.jpeg"></img>
@@ -90,7 +123,6 @@ export default class MainSlider extends React.Component {
                     <li style={{ 'left': `${this.state.params}px` }} className="three__child">
                         <img src="marks.jpeg"></img>
                         <p>ЕвропАвто  рекомендует покупать покупать только качественные запчасти это сэкономит вам время и деньги</p>
-
                     </li>
                 </ul>
 

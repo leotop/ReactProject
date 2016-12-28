@@ -1,18 +1,13 @@
 import axios from 'axios';
 
 const initialState = {
-    text: ''
+    text: '',
+    array: []
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'ADD':
-            // Meteor.call('addTasks', {
-            //     name: 'dima',
-            //     age: action.payload + 1,
-            //     complete: false,
-            //     userName: Meteor.userId()
-            // })
             return {
                 ...state
             }
@@ -21,16 +16,19 @@ export default (state = initialState, action) => {
                 ...state, text: action.payload
             }
         case 'SEND_PARAMS':
+
             axios({
                 method: 'get',
                 url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
             })
             .then(response => {
-                // Session.set('products', response.data.result.filter((item) => {
-        		// 	if(item.delivery !== 'не известно' && item.stock !== '-') {
-        		// 		return item
-        		// 	}
-        		// }))
+
+                let Jstring = JSON.stringify(response.data.result.filter((item) => {
+        			if(item.delivery !== 'не известно' && item.stock !== '-') {
+        				return item
+        			}
+        		}))
+                sessionStorage.setItem('products', Jstring );
             })
             // axios({
             //     method: 'get',
