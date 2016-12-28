@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
                 ...state, text: action.payload
             }
         case 'SEND_PARAMS':
-            axios.get('/send')
+            alert(123)
             // axios({
             //     method: 'get',
             //     url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
