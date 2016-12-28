@@ -8,7 +8,6 @@ export default class TopMenu extends React.Component {
 	render() {
 		return (
 			<div className="top__menu">
-				<Authorization />
 				<div className="main__menu">
 					<ul>
 						<li>

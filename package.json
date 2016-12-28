@@ -40,6 +40,7 @@
     "cors": "*",
     "express": "*",
     "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.17.3",
     "mongoose": "*",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
@@ -47,6 +48,7 @@
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "underscore": "^1.8.3",
+    "validator": "^6.2.0",
     "yandex-map-react": "^1.0.0-beta.13"
   }
 }

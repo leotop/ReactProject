@@ -55,8 +55,9 @@ module.exports = {
         port: 8080,
         contentBase: __dirname + '/public',
         historyApiFallback: true,
-        proxy: {
-            '*' : 'http://localhost:3000'
-        }
+        // proxy: {
+        //     '/send' : 'http://localhost:3000',
+        //
+        // }
     }
 }

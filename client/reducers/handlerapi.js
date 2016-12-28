@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
             //     method: 'get',
             //     url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
             // })
-            
+
 
             // .then(response => {
             //     let Jstring = JSON.stringify(response.data.result.filter((item) => {

@@ -1,11 +1,8 @@
 import mongoose from "mongoose";
 
-import config from '../../etc/config.json';//
+import config from '../../config/config.json';//
 
-//import Note  (React component!)
-import '../../public/Note';
 
-//create new Schema
 const Schema = mongoose.Schema({
     title     : { type: String },
     text      : { type: String, require: true },
@@ -13,8 +10,8 @@ const Schema = mongoose.Schema({
     createdAt : { type: Date}
 });
 
-// create models 'Note'
-const Note = mongoose.model('Note',Schema);
+
+const Tasks = mongoose.model('Task',Schema);
 
 mongoose.Promise = global.Promise;
 // connect database
@@ -22,10 +19,10 @@ export function setUpconnection() {
     mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 }
 
-// function seek note by id 
-export function listNotes(id) {
-    return Note.find();
-}
+// function seek note by id
+// export function listNotes(id) {
+//     return Note.find();
+// }
 
 
 // function create new notes
@@ -45,5 +42,3 @@ export function createNote(data) {
 export function deleteNote(id) {
     return Note.findById(id).remove();
 }
-
-
