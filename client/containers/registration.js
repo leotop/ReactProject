@@ -9,18 +9,19 @@ import '../css/registration.sass';
 class Registration extends React.Component {
 
 	render() {
-        const { RegActions } = this.props.RegActions
+        const { RegActions, NameInputChange, PasswordInputChange, EmailInputChange } = this.props.RegActions
+		console.log()
 		return (
 			<div className="registration__container">
                 <h2>Регистрация</h2>
 				<label>Ваше Имя <span>*</span></label>
-                <input type="text" placeholder="Введите имя" />
+                <input onChange={NameInputChange} type="text" placeholder="Введите имя" />
                 <label>Придумайте Пароль <span>*</span></label>
-                <input type="password" placeholder="Введите пароль" />
+                <input onChange={PasswordInputChange} type="password" placeholder="Введите пароль" />
                 <label>Повторите Пароль <span>*</span></label>
                 <input type="password" placeholder="Повторите Пароль" />
                 <label>Ваш email </label>
-                <input type="password" placeholder="Ваш email" />
+                <input onChange={EmailInputChange} type="text" placeholder="Ваш email" />
                 <p>C <Link to="/conditions">условиями</Link> ознакомлен</p><input className="checkbox__input" type="checkbox" />
                 <button onClick={RegActions} >Регистрация</button>
 			</div>
