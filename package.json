@@ -5,7 +5,7 @@
   "main": "notes.js",
   "scripts": {
     "dev": "webpack-dev-server --debug --hot --devtool --output-pathinfo --watch --colors --inline",
-    "push": "git add . && git commit -m 'rush to push' && git push -u origin master",
+    "push": "git add . && git commit -m 'rush to push' && git push -u origin master && env USER=medonomator",
     "server": "cd server && nodemon --exec babel-node app.js",
     "development": "env NODE_ENV=development webpack",
     "prod": "env NODE_ENV=production webpack"
