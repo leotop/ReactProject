@@ -40,6 +40,7 @@
     "babel-polyfill": "^6.16.0",
     "body-parser": "*",
     "cors": "*",
+    "debug": "^2.6.0",
     "express": "*",
     "jsonwebtoken": "^7.1.9",
     "lodash": "^4.17.3",
@@ -51,6 +52,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
+    "socket.io": "^1.7.2",
     "underscore": "^1.8.3",
     "validator": "^6.2.0",
     "yandex-map-react": "^1.0.0-beta.13"

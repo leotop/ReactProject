@@ -4,6 +4,10 @@ import cors from 'cors';
 import path from 'path'
 import * as db from './utils/DataBaseUtils.js';
 
+
+const debug = require('debug')('server')
+
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,10 +35,21 @@ app.post('/regsend', (req, res) => {
 
 
 app.get(/.*/, (req, res) => {
+    debug(req.url)
     res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
+
 });
 
 
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
     console.log(`Server is up and running on port ${PORT}`);
 });
+
+const io = require('socket.io')(server);
+
+io.sockets.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world'});
+    socket.on('my other event', function (data) {
+        console.log(data);
+    })
+})

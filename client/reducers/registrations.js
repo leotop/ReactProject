@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const initialState = {
     name: '',
     password: '',
@@ -30,9 +31,11 @@ export default (state = initialState, action) => {
             .then(response => {
                 console.log(response.data);
             })
-            
             return {
-                ...state
+                ...state,
+                name: state.name,
+                password: state.password,
+                email: state.email    
             }
         default:
             return state

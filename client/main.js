@@ -22,8 +22,6 @@ import './css/all.sass';
 import './css/all_routes_classes.sass';
 
 
-console.time('d')
-
 const store = configureStore();
 store.dispatch({type: "PHOTOS_SUCCESS"})
 class App extends React.Component {
