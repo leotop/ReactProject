@@ -1,16 +1,17 @@
 {
-  "name": "react-porsh",
-  "version": "1.0.0",
-  "description": "",
-  "main": "notes.js",
+  "name": "europauto",
+  "version": "1.1.0",
+  "description": "online-store",
+  "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server --debug --hot --devtool --output-pathinfo --watch --colors --inline",
     "push": "git add . && git commit -m 'rush to push' && git push -u origin master ",
     "server": "cd server && nodemon --exec babel-node app.js",
     "development": "env NODE_ENV=development webpack",
-    "prod": "env NODE_ENV=production webpack"
+    "prod": "env NODE_ENV=production webpack",
+    "deploy": "nohup env PORT=80 && cd server && nodemon --exec babel-node app.js"
   },
-  "author": "",
+  "author": "Zorin Dmitrii",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-loader": "*",
