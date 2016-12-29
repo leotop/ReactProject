@@ -4,11 +4,11 @@
   "description": "",
   "main": "notes.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --debug --hot --devtool --output-pathinfo --watch --colors --inline",
     "push": "git add . && git commit -m 'rush to push' && git push -u origin master",
     "server": "cd server && nodemon --exec babel-node app.js",
-    "prod": "webpack --optimize-minimize"
+    "development": "env NODE_ENV=development webpack",
+    "prod": "env NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",

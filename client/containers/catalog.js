@@ -12,9 +12,7 @@ class Catalog extends React.Component {
 	render() {
 		const products = this.props.products;
 		const { addBasket, inputChange, onlyOriginal, sendParams } = this.props.basketActions;
-		let array = JSON.parse(sessionStorage.getItem('products')) || [];
-		// console.log(JSON.parse(sessionStorage.getItem('products')))
-
+		const { array } = this.props.example.handlerapi;
 		return (
 			<div className="catalog">
 				<div className="search__filter">

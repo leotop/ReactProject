@@ -3,7 +3,6 @@ const path = require('path');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-
 module.exports = {
     entry: "./client/main.js",
     output: {
@@ -11,9 +10,7 @@ module.exports = {
         publicPath: "build/",
         filename: 'bundle.js'
     },
-
-    // devtool: NODE_ENV == 'development'? 'source-map' : null,
-
+    
     module: {
         loaders: [
             {
@@ -51,6 +48,11 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        })
+    ],
     devServer: {
         port: 8080,
         contentBase: __dirname + '/public',
@@ -60,4 +62,17 @@ module.exports = {
         //
         // }
     }
+}
+
+
+if(NODE_ENV === 'production') {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                drop_console: true,
+                unsafe: true
+            }
+        })
+    )
 }

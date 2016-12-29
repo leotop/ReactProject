@@ -15,14 +15,15 @@ export default (state = initialState, action) => {
             return {
                 ...state, text: action.payload
             }
+        case 'PENDING_PARAMS':
+            console.log('pending')
+            return {
+                ...state
+            }
         case 'SEND_PARAMS':
-            
-            // axios({
-            //     method: 'get',
-            //     url: `https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${state.text}&alt`
-            // })
-
-
+            return {
+                ...state, array: action.payload
+            }
             // .then(response => {
             //     let Jstring = JSON.stringify(response.data.result.filter((item) => {
         	// 		if(item.delivery !== 'не известно' && item.stock !== '-') {
@@ -44,9 +45,7 @@ export default (state = initialState, action) => {
             // return {
             //     ...state
             // }
-            return {
-                ...state
-            }
+
         case 'ONLY_ORIGINAL':
             // axios({
             //     method: 'get',

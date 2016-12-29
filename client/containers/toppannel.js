@@ -10,14 +10,11 @@ import '../css/top-pannel.sass'
 
 
 class TopPannel extends React.Component {
-    componentWillUpdate() {
-        console.log('sdsd')
-    }
     render() {
         let { inputChange } = this.props.basketActions;
         let { text, product } = this.props.text;
         let { sendParams, SendRequest } = this.props.basketActions;
-        console.log(this.props)
+
         return (
             <div className="logo__container">
                 <div>

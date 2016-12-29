@@ -1,53 +1,35 @@
 import axios from 'axios';
 
+let DataRow = '';
 
-export function SendRequest(year) {
-
-  return (dispatch) => {
-    dispatch({
-      type: 'PHOTOS_REQUEST',
-      payload: year
-    })
-
-    setTimeout(() => {
-      dispatch({
-        type: 'PHOTOS_SUCCESS',
-        payload: [1,2,3,4,5]
-      })
-    }, 1000)
-  }
+export function inputChange(event) {
+    DataRow = event.target.value;
+    return {
+        type: 'INPUT_CHANGE',
+        payload: event.target.value,
+    }
 }
 
-// export function SendRequest(year) {
-//
-//     return (dispatch) => {
-//         dispatch({
-//             type: 'PHOTOS_REQUEST',
-//             payload: year
-//         })
-//
-//         axios.get('https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=kl2&alt')
-//             .then(response => {
-//                 dispatch({
-//                     type: 'PHOTOS_SUCCESS',
-//                     payload: response.data.result
-//                 })
-//             })
-//
-//     }
-// }
+export function SendRequest(text) {
+    return dispatch => {
+        dispatch({
+            type: 'PENDING_PARAMS',
+            payload: text
+        })
+        axios.get(`https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${DataRow}&alt`)
+            .then(response => {
+                dispatch({
+                    type: 'SEND_PARAMS',
+                    payload: response.data.result
+                })
+            })
+    }
+}
 
 export function addBasket(text) {
     return {
         type: 'ADD_BASKET',
         payload: text
-    }
-}
-
-export function inputChange(event) {
-    return {
-        type: 'INPUT_CHANGE',
-        payload: event.target.value,
     }
 }
 
