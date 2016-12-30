@@ -33,13 +33,6 @@ export function addBasket(text) {
     }
 }
 
-export function sendParams(text) {
-    return {
-        type: 'SEND_PARAMS',
-        payload: text
-    }
-}
-
 export function deleteProduct(id) {
     return {
         type: 'DELETE_PRODUCT',

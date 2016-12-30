@@ -12,6 +12,7 @@ export function setUpconnection() {
 const Schema = mongoose.Schema({
     name:      { type: String, required: true },
     password:  { type: String, required: true },
+    email   :  { type: String },
     createdAt: { type: Date }
 })
 

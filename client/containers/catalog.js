@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as basketActions  from '../actions/basketActions';
 import CatalogButtons from '../components/catalogbuttons';
-
 import '../css/catalog.sass';
+
+
 
 class Catalog extends React.Component {
 

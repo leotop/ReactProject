@@ -26,7 +26,7 @@ export default class Slider extends React.Component {
 
             <div className="container__slider" >
                 <div className="react__slider">
-                    <i onClick={this.handler.bind(this)} className="fa fa-angle-left fa-5x" aria-hidden="true"></i> 
+                    <i onClick={this.handler.bind(this)} className="fa fa-angle-left fa-5x" aria-hidden="true"></i>
                     <i onClick={this.handler.bind(this)} className="fa fa-angle-right fa-5x" aria-hidden="true"></i>
                 <ul className="carousel">
                     {
@@ -37,11 +37,11 @@ export default class Slider extends React.Component {
                                 )
                         })
                     }
-                </ul>          
+                </ul>
                 </div>
-              
+
             </div>
-            
+
         );
     }
 }
@@ -53,17 +53,17 @@ export default class Slider extends React.Component {
 
 
 
- // <li 
+ // <li
                     //     // style={{
                     //     //     "transform": `matrix3d(${1},${0},${1.00},${0.001},${0.00},${1},${0.00},${0},${0},${0},${1},${0},${200},${0},${0},${1.2})`
-                    //     // }} 
+                    //     // }}
                     //     className="first__element" ><img src="abstractia.jpg" /></li>
-                    // <li 
+                    // <li
                     //     // style={{
                     //     //     "transform": `matrix3d(${1},${0},${1.00},${0.000},${0.00},${1},${0.00},${0},${0},${0},${1},${0},${0},${0},${0},${1.0})`
                     //     // }}
                     //     className={this.state.two} ><img src="abstractia.jpg" /></li>
-                    // <li 
+                    // <li
                     //     // style={{
                     //     //     "transform": `matrix3d(${1},${0},${1},${-0.001},${0.00},${1},${0.00},${0},${0},${0},${1},${0},${-200},${0},${0},${1.2})`,
                     //     //     "zIndex": "-1"

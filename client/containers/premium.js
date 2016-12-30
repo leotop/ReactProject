@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class Premium extends React.Component {
 
-   
+
     render() {
         return (
             <div className="premium">
@@ -12,14 +12,14 @@ export default class Premium extends React.Component {
 				</div>
 
 				<div className="Two__block">
-					<p>Второй Блок с преимуществами</p>		
+					<p>Второй Блок с преимуществами</p>
 				</div>
 
 				<div className="Three__block">
 					<p>Третий Блок с преимуществами</p>
 				</div>
-            			      	
-            </div>  
+
+            </div>
         );
     }
 }

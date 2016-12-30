@@ -6,6 +6,5 @@ import Thunk from 'redux-thunk';
 
 export default function configureStore(initialState) {
     const store = createStore(combineReducers, initialState, applyMiddleware(Thunk));
-
     return store
 }

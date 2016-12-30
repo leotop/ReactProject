@@ -23,19 +23,21 @@ export default (state = initialState, action) => {
                 ...state, email: action.payload
             }
         case 'REG_ACTIONS':
-            axios.post('/regsend', {
-                name: state.name,
-                password: state.password,
-                email: state.email
-            })
-            .then(response => {
-                console.log(response.data);
-            })
+            return dispatch => {
+                axios.post('/regsend', {
+                    name: state.name
+                    password: state.password,
+                    email: state.email
+                })
+                .then(response => {
+                    dispatch({
+                        type: 'REG_ACTIONS',
+                        payload: text
+                    });
+                })
+            }
             return {
-                ...state,
-                name: state.name,
-                password: state.password,
-                email: state.email    
+                ...state, array: action.payload
             }
         default:
             return state
