@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as RegActions from '../actions/RegActions';
 import io from 'socket.io-client';
+import classnames from 'classnames';
 
 import '../css/registration.sass';
 
@@ -27,22 +28,32 @@ class Registration extends React.Component {
 	}
 
 	render() {
-        const { RegActions, NameInputChange, PasswordInputChange, EmailInputChange } = this.props.RegActions;
-		const { name, password, email } = this.props.RegActionsData;
-		console.log(name,password,email)
+        const {
+			RegActions,
+			NameInputChange,
+			PasswordInputChange,
+			PasswordConfirmationInputChange ,
+			EmailInputChange } = this.props.RegActions;
+		const { name, password, passwordConfirmation, email, errors  } = this.props.RegActionsData;
 		return (
 			<div className="registration__container">
-				<h2>Регистрация</h2>
-				<label>Ваше Имя <span>*</span></label>
-                <input onChange={NameInputChange} value={name} type="text" placeholder="Введите имя" />
-                <label>Придумайте Пароль <span>*</span></label>
-                <input onChange={PasswordInputChange} value={password} type="password" placeholder="Введите пароль" />
-                <label>Повторите Пароль <span>*</span></label>
-                <input type="password" placeholder="Повторите Пароль" />
-                <label>Ваш email </label>
-                <input onChange={EmailInputChange} value={email} type="text" placeholder="Ваш email" />
-                <p>C <Link to="/conditions">условиями</Link> ознакомлен</p><input className="checkbox__input" type="checkbox" />
-                <button onClick={RegActions} >Регистрация</button>
+				<form onSubmit={RegActions}>
+					<h2>Регистрация</h2>
+					<label>Ваше Имя <span>*</span></label>
+	                <input className={classnames{'form-group', { 'has-error': errors.username }}} onChange={NameInputChange} value={name} type="text" placeholder="Введите имя" />
+						{errors.name && <span className="help__block">{errors.name}</span>}
+	                <label>Придумайте Пароль <span>*</span></label>
+	                <input onChange={PasswordInputChange} value={password} type="password" placeholder="Введите пароль" />
+					{errors.password && <span className="help__block">{errors.password}</span>}
+	                <label>Повторите Пароль <span>*</span></label>
+	                <input onChange={PasswordConfirmationInputChange} type="password" value={passwordConfirmation} placeholder="Повторите Пароль" />
+					{errors.passwordConfirmation && <span className="help__block">{errors.passwordConfirmation}</span>}
+	                <label>Ваш email </label>
+	                <input onChange={EmailInputChange} value={email} type="text" placeholder="Ваш email" />
+					{errors.email && <span className="help__block">{errors.email}</span>}
+	                <p>C <Link to="/conditions">условиями</Link> ознакомлен</p><input className="checkbox__input" type="checkbox" />
+	                <button onClick={RegActions} >Регистрация</button>
+				</form>
 			</div>
 		)
 	}

@@ -10,8 +10,8 @@ const log = require('debug')('server');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const PORT = process.env.PORT || 3000;
-app.set('port', (process.env.PORT || 3000));
+const PORT = process.env.PORT || 3003;
+app.set('port', (process.env.PORT || 3003));
 app.use(express.static('../public'));
 db.setUpconnection()
 

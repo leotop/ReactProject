@@ -12,10 +12,10 @@ export function inputChange(event) {
 
 export function SendRequest(text) {
     return dispatch => {
-        dispatch({
-            type: 'PENDING_PARAMS',
-            payload: text
-        })
+        // dispatch({
+        //     type: 'PENDING_PARAMS',
+        //     payload: text
+        // })
         axios.get(`https://portal.moskvorechie.ru/portal.api?l=autodz&p=X95YNNdbOVZXHInSxitDTeWqYLLvotq0iMCfbsUjZqDVcsyJ5eRhtUcoLGBPcJEd&act=price_by_nr_firm&nr=${DataRow}&alt`)
             .then(response => {
                 dispatch({

@@ -41,6 +41,7 @@
     "babel-polyfill": "^6.16.0",
     "bcrypt": "^1.0.1",
     "body-parser": "*",
+    "classnames": "^2.2.5",
     "cors": "*",
     "debug": "^2.6.0",
     "express": "*",
@@ -56,7 +57,7 @@
     "redux-thunk": "^2.1.0",
     "socket.io": "^1.7.2",
     "underscore": "^1.8.3",
-    "validator": "^6.2.0",
+    "validator": "^5.4.0",
     "yandex-map-react": "^1.0.0-beta.13"
   }
 }

@@ -4,8 +4,9 @@ import axios from 'axios';
 const initialState = {
     name: '',
     password: '',
+    passwordConfirmation: '',
     email: '',
-    array: []
+    errors: []
 }
 
 export default (state = initialState, action) => {
@@ -18,26 +19,22 @@ export default (state = initialState, action) => {
             return {
                 ...state, password: action.payload
             }
+        case 'PASSWORD_CONFIRMATION':
+            return {
+                ...state, passwordConfirmation: action.payload
+            }
         case 'EMAIL_INPUT':
             return {
                 ...state, email: action.payload
             }
         case 'REG_ACTIONS':
-            return dispatch => {
-                axios.post('/regsend', {
-                    name: state.name
-                    password: state.password,
-                    email: state.email
-                })
-                .then(response => {
-                    dispatch({
-                        type: 'REG_ACTIONS',
-                        payload: text
-                    });
-                })
-            }
+            console.log(action.payload)
             return {
-                ...state, array: action.payload
+                ...state,
+                name: '',
+                password: '',
+                passwordConfirmation: '',
+                errors: action.payload
             }
         default:
             return state
