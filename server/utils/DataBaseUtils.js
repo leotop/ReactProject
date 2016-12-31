@@ -10,10 +10,12 @@ export function setUpconnection() {
 
 
 const Schema = mongoose.Schema({
-    name:      { type: String, required: true },
-    password:  { type: String, required: true },
-    email   :  { type: String },
-    createdAt: { type: Date }
+    name      : { type: String, required: true, unique: true },
+    password  : { type: String, required: true },
+    email     : { type: String, unique: true },
+    balans    : { type: Number },
+    markAuto : { type: String },
+    createdAt : { type: Date }
 })
 
 export const Users = mongoose.model('users', Schema)

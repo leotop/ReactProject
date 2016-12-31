@@ -4,18 +4,20 @@ import cors from 'cors';
 import path from 'path';
 import * as db from './utils/DataBaseUtils';
 import users from './routes/users';
+import auth from './routes/auth';
 const log = require('debug')('server');
 
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const PORT = process.env.PORT || 3003;
-app.set('port', (process.env.PORT || 3003));
+const PORT = process.env.PORT || 3001;
+app.set('port', (process.env.PORT || 3001));
 app.use(express.static('../public'));
 db.setUpconnection()
 
 app.use('/regsend', users);
+app.use('/authsend', auth);
 
 app.get(/.*/, (req, res) => {
     log(req.url)

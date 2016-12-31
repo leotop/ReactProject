@@ -45,7 +45,7 @@
     "cors": "*",
     "debug": "^2.6.0",
     "express": "*",
-    "jsonwebtoken": "^7.1.9",
+    "jsonwebtoken": "^7.2.1",
     "lodash": "^4.17.3",
     "mongoose": "*",
     "react": "^15.3.2",

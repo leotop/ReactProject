@@ -46,12 +46,15 @@ router.post('/', (req, res) => {
     let newUser = new db.Users({
         name,
         password,
-        email
+        email,
+        balans: 0,
+        markAuto: '',
+        createdAt: Date.now()
     })
     newUser.save()
     db.Users.find()
         .then(response => {
-            console.log(newUser)
+            console.log(response)
         })
     res.send(req.body)
 })
