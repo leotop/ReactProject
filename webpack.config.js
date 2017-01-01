@@ -58,8 +58,13 @@ module.exports = {
         contentBase: __dirname + '/public',
         historyApiFallback: true,
         proxy: {
-            '*' : 'http://localhost:3001',
+            '*' : 'http://localhost:3000',
         }
+    },
+
+    node: {
+        net: 'empty',
+        dns: 'empty'
     }
 }
 

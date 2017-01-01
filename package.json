@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server --debug --hot --devtool --output-pathinfo --watch --colors --inline",
-    "push": "git add . && git commit -m 'rush to push' && git push -u origin master ",
+    "push": "git add . && git commit -m 'rush to push' && git push -u origin master",
     "server": "cd server && nodemon --exec babel-node app.js",
     "development": "env NODE_ENV=development webpack",
     "prod": "env NODE_ENV=production webpack",
@@ -45,9 +45,12 @@
     "cors": "*",
     "debug": "^2.6.0",
     "express": "*",
+    "express-logger": "0.0.3",
+    "helmet": "^3.3.0",
     "jsonwebtoken": "^7.2.1",
     "lodash": "^4.17.3",
     "mongoose": "*",
+    "morgan": "^1.7.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -55,9 +58,11 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
+    "soap": "^0.18.0",
     "socket.io": "^1.7.2",
     "underscore": "^1.8.3",
     "validator": "^5.4.0",
+    "xml2js": "^0.4.17",
     "yandex-map-react": "^1.0.0-beta.13"
   }
 }

@@ -3,6 +3,7 @@ import * as db from '../utils/DataBaseUtils';
 import Validator from 'validator'
 import isEmpty from 'lodash/isEmpty';
 import jwt from 'jsonwebtoken';
+const log = require('debug')('server');
 
 
 const router = express.Router();
@@ -23,6 +24,7 @@ function validateInput(data) {
     }
 }
 
+
 router.post('/', (req, res) => {
     const { errors, isValid } = validateInput(req.body);
     const { name, password } = req.body;
@@ -36,7 +38,7 @@ router.post('/', (req, res) => {
                 id: user.get('id'),
                 name: user.get('name')
             }, 'somesecretkey' )
-            res.json(token)
+            res.send(token)
         })
 })
 

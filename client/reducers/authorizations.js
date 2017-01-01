@@ -1,11 +1,15 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router'
+import setAuthorizationToken from '../another/setAuthToken';
+import jwt from 'jsonwebtoken';
+import isEmpty from 'lodash/isEmpty';
+
 
 const initialState = {
     name: '',
     password: '',
     errors: [],
-    isLoading: false
+    isAuthenticated: false
 }
 
 export default (state = initialState, action) => {
@@ -21,9 +25,13 @@ export default (state = initialState, action) => {
         case 'AUTH_ACTIONS':
             // browserHistory.push('/');
             const token = action.payload
-            localStorage.setItem('jwtToken', token);    
+            localStorage.setItem('jwtToken', token);  
+            setAuthorizationToken(token)
+            const decodUser = jwt.decode(token);
+            console.log(decodUser.user);
             return {
                 ...state,
+                isAuthenticated: isEmpty(decodUser.user),
                 name: '',
                 password: '',
                 errors: action.payload
