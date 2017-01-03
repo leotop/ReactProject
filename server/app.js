@@ -6,8 +6,15 @@ import helmet from 'helmet';
 import * as db from './utils/DataBaseUtils';
 import users from './routes/users';
 import auth from './routes/auth';
+import iconv from 'iconv-lite';
+import fs from 'fs';
+import csv from 'csvtojson';
 
+// const result = fs.readFileSync('convertcsv.json');
 
+// const str = iconv.decode(new Buffer(result), 'win1251');
+
+// console.log(str);
 
 const app = express();
 app.use(bodyParser.json());

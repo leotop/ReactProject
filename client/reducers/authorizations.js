@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
         case 'AUTH_ACTIONS':
             // browserHistory.push('/');
             const token = action.payload
-            localStorage.setItem('jwtToken', token);  
+            localStorage.setItem('jwtToken', token);
             setAuthorizationToken(token)
             const decodUser = jwt.decode(token);
             console.log(decodUser.user);

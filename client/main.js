@@ -16,15 +16,13 @@ import Shipping from './containers/shipping';
 import Basket from './containers/basket';
 import Contacts from './containers/contacts';
 import Footer from './containers/footer';
-import setAuthorizationToken from './another/setAuthToken';
+
 
 import './css/normalize.css'
 import './css/all.sass';
 import './css/all_routes_classes.sass';
 
 const store = configureStore();
-
-setAuthorizationToken(localStorage.jwtToken);
 
 class App extends React.Component {
     render() {

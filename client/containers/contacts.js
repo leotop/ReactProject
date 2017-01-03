@@ -18,7 +18,7 @@ export default class Contacts extends React.Component {
 По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>
 				<h2>Нас просто найти</h2>
                 <div className="local__map">
-                    <img src="local.jpg"/>
+                    <img src="./img/local.jpg"/>
                 </div>
                 <div className="yandex__map">
                     <Map pt={56.25564685, 43.46306741} width={1200} height={257} center={[56.25564685, 43.46306741]} zoom={15}>

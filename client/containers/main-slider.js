@@ -2,12 +2,10 @@ import React from 'react';
 
 import '../css/mainpage/main-slider.sass';
 
-
 var clear1,
     clear2,
     clear3,
     clear4;
-
 
 export default class MainSlider extends React.Component {
     constructor() {
@@ -111,17 +109,17 @@ export default class MainSlider extends React.Component {
 
 				<ul className="main__slider">
                     <li style={{ 'left': `${this.state.params}px` }} className="first__child">
-                        <img src="marks.jpeg"></img>
+                        <img src="./img/marks.jpeg"></img>
                         <p>ЕвропАвто  рекомендует покупать покупать только качественные запчасти это сэкономит вам время и деньги</p>
 
                     </li>
                     <li style={{ 'left': `${this.state.params}px` }} className="two__child">
-                        <img src="marks.jpeg"></img>
+                        <img src="./img/marks.jpeg"></img>
                         <p>ЕвропАвто рекомендует покупать покупать только качественные запчасти это сэкономит вам время и деньги</p>
 
                     </li>
                     <li style={{ 'left': `${this.state.params}px` }} className="three__child">
-                        <img src="marks.jpeg"></img>
+                        <img src="./img/marks.jpeg"></img>
                         <p>ЕвропАвто  рекомендует покупать покупать только качественные запчасти это сэкономит вам время и деньги</p>
                     </li>
                 </ul>

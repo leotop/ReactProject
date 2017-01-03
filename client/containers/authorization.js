@@ -7,10 +7,9 @@ import classnames from 'classnames';
 
 class Authorization extends React.Component {
 
-
     render() {
         const { name, password } = this.props.AuthActionsData;
-        const { AuthActions, NameInputChange, PasswordInputChange } = this.props.AuthActions
+        const { AuthActions, NameInputChange, PasswordInputChange } = this.props.AuthActions;
         return (
             <div className="registration__container">
                 <label>Ваше Имя <span>*</span></label>
