@@ -14,7 +14,7 @@ const Schema = mongoose.Schema({
     password  : { type: String, required: true },
     email     : { type: String, unique: true },
     balans    : { type: Number },
-    markAuto : { type: String },
+    markAuto  : { type: String },
     createdAt : { type: Date }
 })
 

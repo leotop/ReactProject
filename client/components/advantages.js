@@ -16,5 +16,5 @@ export default class Advantages extends React.Component {
 				</div>
 			</div>
 		)
-	}
+	}	
 }

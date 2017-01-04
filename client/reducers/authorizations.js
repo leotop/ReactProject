@@ -7,9 +7,8 @@ import isEmpty from 'lodash/isEmpty';
 
 const initialState = {
     name: '',
-    password: '',
-    errors: [],
-    isAuthenticated: false
+    username: '',
+    password: ''
 }
 
 export default (state = initialState, action) => {
@@ -22,19 +21,24 @@ export default (state = initialState, action) => {
             return {
                 ...state, password: action.payload
             }
+        case 'LOGOUT_HANDLER':
+            localStorage.removeItem('jwtToken');
+            return {
+                ...state
+            }
         case 'AUTH_ACTIONS':
-            // browserHistory.push('/');
-            const token = action.payload
-            localStorage.setItem('jwtToken', token);
-            setAuthorizationToken(token)
+            const token = action.payload;
+            if(!isEmpty(token)) {
+                localStorage.setItem('jwtToken', token);
+                setAuthorizationToken(token);
+                browserHistory.push('/');
+            }
             const decodUser = jwt.decode(token);
-            console.log(decodUser.user);
             return {
                 ...state,
-                isAuthenticated: isEmpty(decodUser.user),
+                username: decodUser.name,
                 name: '',
-                password: '',
-                errors: action.payload
+                password: ''
             }
         default:
             return state

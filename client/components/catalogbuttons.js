@@ -1,9 +1,6 @@
 import React from 'react';
 
 
-
-
-
 export default class CatalogButtons extends React.Component {
 
 	render() {

@@ -46,3 +46,10 @@ export function onlyOriginal(text) {
         payload: text
     }
 }
+
+export function logoutHandler(text) {
+    return {
+        type: 'LOGOUT_HANDLER',
+        payload: text
+    }
+}

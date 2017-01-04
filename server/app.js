@@ -2,19 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import path from 'path';
+import fs from 'fs';
 import helmet from 'helmet';
 import * as db from './utils/DataBaseUtils';
-import users from './routes/users';
+import regusers from './routes/regusers';
 import auth from './routes/auth';
 import iconv from 'iconv-lite';
-import fs from 'fs';
+
 import csv from 'csvtojson';
-
-// const result = fs.readFileSync('convertcsv.json');
-
-// const str = iconv.decode(new Buffer(result), 'win1251');
-
-// console.log(str);
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,7 +20,7 @@ app.use(helmet());
 db.setUpconnection();
 app.disable('x-powered-by');
 
-app.use('/regsend', users);
+app.use('/regsend', regusers);
 app.use('/authsend', auth);
 
 app.get(/.*/, (req, res) => {
@@ -37,21 +32,10 @@ const server = app.listen(app.get('port'), () => {
     console.log(`Server is up and running on port ${process.env.PORT || 3000}`);
 });
 
-const io = require('socket.io')(server);
-
-io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world'});
-    socket.on('my other event', function (data) {
-        console.log(data);
-    })
-})
 
 
-//
-// function* params () {
-// 	console.log('params');
-// 	let opa = yield console.log('example');;
-// 	console.log(opa)
-// 	console.log('example');
-// }
-// params().next()
+// const result = fs.readFileSync('convertcsv.json');
+
+// const str = iconv.decode(new Buffer(result), 'win1251');
+
+// console.log(str);
