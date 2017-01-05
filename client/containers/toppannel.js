@@ -22,16 +22,15 @@ class TopPannel extends React.Component {
         const userLinks = (
             <div className="registration__wrapper">
                 <i className="fa fa-sign-in" aria-hidden="true"></i><Link to="/authorization">Войти</Link>
-                <Link to="/forgotpassword"><span>Забыли пароль?</span></Link>
+                {/* <Link to="/forgotpassword"><span>Забыли пароль?</span></Link> */}
                 <Link to="/registration"><span className="last__span">Зарегистрироваться</span></Link>
             </div>
         )
         const guestLinks = (
             <div className="registration__wrapper logout__wrapper">
                 <a onClick={logoutHandler}>Выйти</a>
-                <span className="last__span">Вы вошли как <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
-                <span className="balans__span">Ваш баланс <b>0</b></span>
-                <Link to="/office"><span className="office__span">Личный кабинет</span></Link>
+                <span className="last__span">Вы вошли как: <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
+                <span className="balans__span">Ваш баланс: <b>0</b></span>
             </div>
         )
 
@@ -54,9 +53,9 @@ class TopPannel extends React.Component {
                         </div>
 
                         <div className="choice">
-                            <a href="#">по номеру</a>
-                            <a href="#">по vin</a>
-                            <a href="#">по сайту</a>
+                            <Link title="В корзине пусто" to="/basket"><i className="fa fa-shopping-basket" aria-hidden="true"></i></Link>
+                            <Link title="Последние заказы" to="/lastorders"><i className="fa fa-file-text-o" aria-hidden="true"></i></Link>
+                            <Link title="Личный кабинет" to="/personaloffice"><i className="fa fa-home" aria-hidden="true"></i></Link>
                         </div>
                     </div>
                 </div>

@@ -20,13 +20,20 @@ export function SendRequest(text) {
             .then(response => {
                 dispatch({
                     type: 'SEND_PARAMS',
-                    payload: response.data.result
+                    payload: response.data.result.filter((item) => {
+            			if(item.delivery !== 'не известно' && item.stock !== '-') {
+            				return item
+            			}
+            		}).sort((a=`${DataRow}`, b) => {
+                        return a
+                    })
                 })
             })
     }
 }
 
 export function addBasket(text) {
+    console.log(text)
     return {
         type: 'ADD_BASKET',
         payload: text

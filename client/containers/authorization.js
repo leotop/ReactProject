@@ -19,8 +19,6 @@ class Authorization extends React.Component {
                                                      :
                         <form onSubmit={AuthActions}>
                             <h2>Авторизация</h2>
-                            {/* <span className="help__block">{errors.name}</span> */}
-                            {/* <span className="help__block">{errors.password}</span> */}
                             <label>Ваше Имя <span>*</span></label>
                             <input onChange={NameInputChange} value={name} type="text" placeholder="Введите ваше имя" />
                             {/* {errors.name && <span className="help__block">{errors.name}</span>} */}

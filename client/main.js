@@ -15,6 +15,8 @@ import Shipping from './containers/shipping';
 import Basket from './containers/basket';
 import Contacts from './containers/contacts';
 import Conditions from './components/conditions';
+import LastOrders from './containers/lastorders';
+import PersonalOffice from './containers/personaloffice';
 import Footer from './containers/footer';
 
 
@@ -54,6 +56,8 @@ render(
                 <Route path="authorization" component={Authorization} />
                 <Route path="forgotpassword" component={ForgotPassword} />
                 <Route path="conditions" component={Conditions} />
+                <Route path="lastorders" component={LastOrders} />
+                <Route path="personaloffice" component={PersonalOffice} />
             </Route>
             {/* <Route path="*" component={No} /> */}
         </Router>

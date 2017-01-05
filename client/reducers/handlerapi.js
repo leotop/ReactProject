@@ -24,28 +24,6 @@ export default (state = initialState, action) => {
             return {
                 ...state, array: action.payload
             }
-            // .then(response => {
-            //     let Jstring = JSON.stringify(response.data.result.filter((item) => {
-        	// 		if(item.delivery !== 'не известно' && item.stock !== '-') {
-        	// 			return item
-        	// 		}
-        	// 	}))
-            //     sessionStorage.setItem('products', Jstring );
-            // })
-            // axios({
-            //     method: 'get',
-            //     url: `http://www.part-kom.ru/engine/api/v2/search/parts?number=${state.text}`,
-            //     headers: {
-            //         'Authorization': 'Basic ' + new Buffer('demin' + ':' + 'demin12345').toString('base64'),
-            //     }
-            // })
-            // .then(response => {
-            //     console.log(Session.set('products2', response.data));
-            // })
-            // return {
-            //     ...state
-            // }
-
         case 'ONLY_ORIGINAL':
             // axios({
             //     method: 'get',

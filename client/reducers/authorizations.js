@@ -29,10 +29,12 @@ export default (state = initialState, action) => {
         case 'AUTH_ACTIONS':
             const token = action.payload;
             if(!isEmpty(token)) {
-                console.log(token)
-                // localStorage.setItem('jwtToken', token);
-                // setAuthorizationToken(token);
-                // browserHistory.push('/');
+                if(typeof token === 'string') {
+                    localStorage.setItem('jwtToken', token);
+                    setAuthorizationToken(token);
+                    browserHistory.push('/');
+                }
+
             }
             return {
                 ...state,
