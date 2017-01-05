@@ -5,6 +5,13 @@ let inputPassword = '';
 let passwordConfirmation = '';
 let inputEmail = '';
 
+export function ConditionAgree(text) {
+    return {
+        type: 'COND_AGREE',
+        payload: text
+    }
+}
+
 export function NameInputChange(event) {
     inputName = event.target.value
     return {
@@ -46,6 +53,14 @@ export function EmailInputChange(event) {
 }
 
 
+export function goAuth(text) {
+    inputEmail = event.target.value
+    return {
+        type: 'GO_AUTH',
+        payload: text
+    }
+}
+
 export function RegActions(text) {
     return dispatch => {
         axios.post('/regsend', {
@@ -57,13 +72,13 @@ export function RegActions(text) {
         .then(response => {
             dispatch({
                 type: 'REG_ACTIONS',
-                payload: response.data
+                payload: response.data,
             });
+            inputName = '';
+            inputPassword = '';
+            passwordConfirmation = '';
+            inputEmail = '';
         })
-        inputName = '';
-        inputPassword = '';
-        passwordConfirmation = '';
-        inputEmail = '';
         text.preventDefault();
     }
 }

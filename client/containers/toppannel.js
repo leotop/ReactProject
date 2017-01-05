@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as basketActions  from '../actions/basketActions';
+import jwt from 'jsonwebtoken';
+import isEmpty from 'lodash/isEmpty';
 
 import '../css/logo.sass';
 import '../css/top-pannel.sass'
@@ -14,7 +16,9 @@ class TopPannel extends React.Component {
         let { inputChange } = this.props.basketActions;
         let { text, product } = this.props.text;
         let { sendParams, SendRequest, logoutHandler } = this.props.basketActions;
-        let { username } = this.props.isAuthenticated;
+        if(localStorage.getItem('jwtToken')) {
+            var decode = jwt.decode(localStorage.getItem('jwtToken'),{complete: true});
+        }
         const userLinks = (
             <div className="registration__wrapper">
                 <i className="fa fa-sign-in" aria-hidden="true"></i><Link to="/authorization">Войти</Link>
@@ -22,11 +26,12 @@ class TopPannel extends React.Component {
                 <Link to="/registration"><span className="last__span">Зарегистрироваться</span></Link>
             </div>
         )
-
         const guestLinks = (
-            <div className="registration__wrapper">
-                <div>Вы вошли как: {username}</div>
-                <i className="fa fa-sign-in" aria-hidden="true"></i><a onClick={logoutHandler}>Выйти</a>
+            <div className="registration__wrapper logout__wrapper">
+                <a onClick={logoutHandler}>Выйти</a>
+                <span className="last__span">Вы вошли как <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
+                <span className="balans__span">Ваш баланс <b>0</b></span>
+                <Link to="/office"><span className="office__span">Личный кабинет</span></Link>
             </div>
         )
 
@@ -66,7 +71,7 @@ function mapStateToProps(state) {
     return {
         text: state.handlerapi,
         sendParams: state.basketActions,
-        isAuthenticated: state.authorization
+        isAuthorizations: state.authorization
     }
 }
 

@@ -30,15 +30,9 @@ export function AuthActions(text) {
                 type: 'AUTH_ACTIONS',
                 payload: response.data
             });
+            inputName = '';
+            inputPassword = '';
         })
-        .catch(response => {
-            dispatch({
-                type: 'AUTH_ACTIONS',
-                payload: response.data
-            });
-        })
-        inputName = '';
-        inputPassword = '';
         text.preventDefault();
     }
 }

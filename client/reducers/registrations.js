@@ -7,7 +7,7 @@ const initialState = {
     passwordConfirmation: '',
     email: '',
     errors: [],
-    isLoading: false
+    isOpen: true
 }
 
 export default (state = initialState, action) => {
@@ -28,14 +28,23 @@ export default (state = initialState, action) => {
             return {
                 ...state, email: action.payload
             }
+        case 'COND_AGREE':
+            return {
+                ...state,
+                isOpen: !state.isOpen
+            }
+        case 'GO_AUTH':
+            browserHistory.push('/authorization');
+            return {
+                ...state
+            }
         case 'REG_ACTIONS':
-            // browserHistory.push('/');
             return {
                 ...state,
                 name: '',
                 password: '',
                 passwordConfirmation: '',
-                errors: action.payload
+                errors: action.payload,
             }
         default:
             return state

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
 
-
 import TopPannel from './containers/toppannel';
 import TopMenu from './containers/topmenu';
 import MainPage from './containers/mainpage';
@@ -15,6 +14,7 @@ import Catalog from './containers/catalog';
 import Shipping from './containers/shipping';
 import Basket from './containers/basket';
 import Contacts from './containers/contacts';
+import Conditions from './components/conditions';
 import Footer from './containers/footer';
 
 
@@ -53,6 +53,7 @@ render(
                 <Route path="registration" component={Registration} />
                 <Route path="authorization" component={Authorization} />
                 <Route path="forgotpassword" component={ForgotPassword} />
+                <Route path="conditions" component={Conditions} />
             </Route>
             {/* <Route path="*" component={No} /> */}
         </Router>

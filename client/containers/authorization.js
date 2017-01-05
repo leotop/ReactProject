@@ -8,21 +8,27 @@ import classnames from 'classnames';
 class Authorization extends React.Component {
 
     render() {
-        let { name, password } = this.props.AuthActionsData;
+        let { name , password, errors } = this.props.AuthActionsData;
         let { AuthActions, NameInputChange, PasswordInputChange } = this.props.AuthActions;
         return (
             <div className="registration__container">
                 {
                     localStorage.getItem('jwtToken') ?
-                        <div><h2>И чего ты тут забыл?</h2></div>                  : 
 
-                        <div>
+                        <div><h2>И чего ты тут забыл?</h2></div>
+                                                     :
+                        <form onSubmit={AuthActions}>
+                            <h2>Авторизация</h2>
+                            {/* <span className="help__block">{errors.name}</span> */}
+                            {/* <span className="help__block">{errors.password}</span> */}
                             <label>Ваше Имя <span>*</span></label>
                             <input onChange={NameInputChange} value={name} type="text" placeholder="Введите ваше имя" />
+                            {/* {errors.name && <span className="help__block">{errors.name}</span>} */}
                             <label>Придумайте Пароль <span>*</span></label>
                             <input onChange={PasswordInputChange} value={password} type="password" placeholder="Введите ваш пароль" />
-                            <button onClick={AuthActions} >Регистрация</button>
-                        </div>
+                            {/* {errors.password && <span className="help__block">{errors.password}</span>} */}
+                            <button onClick={AuthActions}>Войти</button>
+                        </form>
                 }
             </div>
         );

@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
         })
         newUser.save()
         console.log(newUser);
-        res.send(req.body)
+        res.send('Вы успешно зарегистрировались')
     }   else {
         res.send(errors)
     }
