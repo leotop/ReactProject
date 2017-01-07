@@ -8,8 +8,10 @@ import * as db from './utils/DataBaseUtils';
 import regusers from './routes/regusers';
 import auth from './routes/auth';
 import iconv from 'iconv-lite';
-
+import service from './routes/service';
 import csv from 'csvtojson';
+
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,6 +24,8 @@ app.disable('x-powered-by');
 
 app.use('/regsend', regusers);
 app.use('/authsend', auth);
+app.use('/service', service);
+
 
 app.get(/.*/, (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));

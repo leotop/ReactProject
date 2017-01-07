@@ -15,7 +15,7 @@ class TopPannel extends React.Component {
     render() {
         let { inputChange } = this.props.basketActions;
         let { text, product } = this.props.text;
-        let { sendParams, SendRequest, logoutHandler } = this.props.basketActions;
+        let { sendParams, SendRequest } = this.props.basketActions;
         if(localStorage.getItem('jwtToken')) {
             var decode = jwt.decode(localStorage.getItem('jwtToken'),{complete: true});
         }
@@ -28,7 +28,6 @@ class TopPannel extends React.Component {
         )
         const guestLinks = (
             <div className="registration__wrapper logout__wrapper">
-                <a onClick={logoutHandler}>Выйти</a>
                 <span className="last__span">Вы вошли как: <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
                 <span className="balans__span">Ваш баланс: <b>0</b></span>
             </div>
