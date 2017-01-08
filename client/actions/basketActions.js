@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import { LodObj } from 'lodash/object';
+console.log(LodObj)
 let DataRow = '';
 
 export function inputChange(event) {
@@ -31,9 +32,10 @@ export function SendRequest(text) {
             })
     }
 }
-
+let object = {}
 export function addBasket(text) {
-    console.log(text)
+    localStorage.setItem('basket');
+
     return {
         type: 'ADD_BASKET',
         payload: text
