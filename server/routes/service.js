@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const router = express.Router();
 
-// soap.createClient('http://DOMAIN.rossko.ru/service/v1/GetCheckout?wsdl', function(err, client) {
+// soap.createClient('http://ixora-auto.ru/TestService?wsdl', function(err, client) {
 //     console.log(err)
 //     if(err) console.log(err)
 //     else {
@@ -29,7 +29,18 @@ export default router;
 
 
 
-
+// axios({
+//     method: 'post',
+//     url: `http://ptkavto.ru/xmlprice.php?login=mylogin&password=mypassword&code=30292`,
+//     headers: {
+//         'Authorization': 'Basic ' + new Buffer('demin' + ':' + 'demin12345').toString('base64'),
+//         'Accept': 'application/json',
+//         'Content-type': 'application/json'
+//     }
+// })
+// .then(function (response) {
+//     console.log(response);
+// })
 
 // axios({
 //     method: 'get',

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
-import * as basketActions  from '../actions/basketActions';
+import * as TopPannelActions  from '../actions/TopPannelActions';
 import jwt from 'jsonwebtoken';
 import isEmpty from 'lodash/isEmpty';
 
@@ -13,12 +13,14 @@ import '../css/top-pannel.sass'
 class TopPannel extends React.Component {
 
     render() {
-        let { inputChange } = this.props.basketActions;
+        let { inputChange } = this.props.TopPannelActions;
         let { text, product } = this.props.text;
-        let { sendParams, SendRequest } = this.props.basketActions;
+        let { sendParams, SendRequest, logoutHandler } = this.props.TopPannelActions;
+
         if(localStorage.getItem('jwtToken')) {
-            var decode = jwt.decode(localStorage.getItem('jwtToken'),{complete: true});
+            var decode = jwt.decode(localStorage.getItem('jwtToken'), { complete: true });
         }
+
         const userLinks = (
             <div className="registration__wrapper">
                 <i className="fa fa-sign-in" aria-hidden="true"></i><Link to="/authorization">Войти</Link>
@@ -26,10 +28,13 @@ class TopPannel extends React.Component {
                 <Link to="/registration"><span className="last__span">Зарегистрироваться</span></Link>
             </div>
         )
+
         const guestLinks = (
             <div className="registration__wrapper logout__wrapper">
-                <span className="last__span">Вы вошли как: <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
-                <span className="balans__span">Ваш баланс: <b>0</b></span>
+                <span className="balans__span">Ваш баланс: <b>0</b> руб.</span>
+                <span className="basket__span">В корзине позиций <b>0</b> на сумму <b>0</b> руб.</span>
+                <span className="last__span">Клиент: <b>{ localStorage.getItem('jwtToken') ? decode.payload.name : <div></div>}</b></span>
+                <Link to="/" onClick={logoutHandler}><span className="exit__span">Выход</span></Link>
             </div>
         )
 
@@ -54,7 +59,7 @@ class TopPannel extends React.Component {
                         <div className="choice">
                             <Link title="В корзине пусто" to="/basket"><i className="fa fa-shopping-basket" aria-hidden="true"></i></Link>
                             <Link title="Последние заказы" to="/lastorders"><i className="fa fa-file-text-o" aria-hidden="true"></i></Link>
-                            <Link title="Личный кабинет" to="/personaloffice"><i className="fa fa-home" aria-hidden="true"></i></Link>
+                            <Link title="Личный кабинет" to="/personaloffice"><img className="money__img" src="./img/money.jpg"></img></Link>
                         </div>
                     </div>
                 </div>
@@ -68,14 +73,14 @@ class TopPannel extends React.Component {
 function mapStateToProps(state) {
     return {
         text: state.handlerapi,
-        sendParams: state.basketActions,
+        sendParams: state.TopPannelActions,
         isAuthorizations: state.authorization
     }
 }
 
 function  mapDispatchToProps(dispatch) {
     return {
-        basketActions: bindActionCreators(basketActions, dispatch)
+        TopPannelActions: bindActionCreators(TopPannelActions, dispatch)
     }
 }
 

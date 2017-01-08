@@ -16,6 +16,11 @@ export default class TopMenu extends React.Component {
 						<li><Link to="/shipping">Способы оплаты</Link></li>
 						<li><Link to="/basket">Корзина</Link></li>
 						<li><Link to="/about">О нас</Link></li>
+						<li><Link to="/contact">Контакты</Link></li>
+						{
+							localStorage.getItem('jwtToken') ? <li><Link to="/personaloffice">Личный кабинет</Link></li> : <div></div>
+						}
+
 					</ul>
 				</div>
 			</div>
