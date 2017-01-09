@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const initialState = {
     text: '',
-    array: []
+    arrayMoskvorechie: [],
+    arrayPartKom: []
 }
 
 export default (state = initialState, action) => {
@@ -22,7 +23,9 @@ export default (state = initialState, action) => {
             }
         case 'SEND_PARAMS':
             return {
-                ...state, array: action.payload
+                ...state,
+                    arrayMoskvorechie: action.payload,
+                    arrayPartKom: action.partKom
             }
         case 'ONLY_ORIGINAL':
             // axios({
@@ -47,6 +50,30 @@ export default (state = initialState, action) => {
     return state
 }
 
+
+// let body = `<?xml version="1.0" encoding="UTF-8" ?>
+//             <message>
+//                 <param>
+//                     <action>price</action>
+//                     <login>europautodz</login>
+//                     <password>u32CgV</password>
+//                     <code>351974070000</code>
+//                     <brand>MAGNETI MARELLI</brand>
+//                     <crosses>disallow</crosses>
+//                 </param>
+//             </message>`;
+
+axios({
+    method: 'post',
+    url: `http://adeo.pro/pricedetals2.php?login=europautodz?password=u32CgV`,
+    headers: {
+        'Content-type': 'text/xml',
+
+    }
+})
+.then(response => {
+    console.log(response.data);
+})
 
 // axios({
 //     method: 'post',

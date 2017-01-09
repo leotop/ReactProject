@@ -51,7 +51,7 @@ render(
                 <Route path="directory" component={Catalog} />
                 <Route path="shipping" component={Shipping} />
                 <Route path="basket" component={Basket} />
-                <Route path="about" component={Contacts} />
+                <Route path="contacts" component={Contacts} />
                 <Route path="registration" component={Registration} />
                 <Route path="authorization" component={Authorization} />
                 <Route path="forgotpassword" component={ForgotPassword} />

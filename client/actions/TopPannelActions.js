@@ -12,7 +12,7 @@ function moskvorechie() {
 function PartKom() {
     return axios({
         method: 'get',
-        url: `http://www.part-kom.ru/engine/api/v1/search/parts?number=333114?`,
+        url: `http://www.part-kom.ru/engine/api/v1/search/parts?number=${DataRow}?`,
             headers: {
                 'Authorization': 'Basic ' + new Buffer('demin' + ':' + 'demin12345').toString('base64'),
                 'Accept': 'application/json',
@@ -37,18 +37,21 @@ export function SendRequest(text) {
         //     payload: text
         // })
         axios.all([
-            moskvorechie(), PartKom()
+            moskvorechie(),
+            PartKom()
         ])
         .then(axios.spread(function (acct, perms) {
-            console.log(acct)
-            console.log(perms)
+            dispatch({
+                type: 'SEND_PARAMS',
+                payload: acct.data.result.filter((item) => {
+                    if(item.delivery !== 'не известно' && item.stock !== '-') {
+                        return item
+                    }
+                }),
+                partKom: perms.data
+            })
         }))
-        // .then(response => {
-        //     dispatch({
-        //         type: 'SEND_PARAMS',
-        //         payload: response.data.result
-        //     })
-        // })
+
     }
 }
 
@@ -65,10 +68,3 @@ export function logoutHandler(text) {
         payload: text
     }
 }
-
-
-// filter((item) => {
-//     if(item.delivery !== 'не известно' && item.stock !== '-') {
-//         return item
-//     }
-// })

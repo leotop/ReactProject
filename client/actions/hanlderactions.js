@@ -1,4 +1,7 @@
 import axios from 'axios';
+import xml2js from 'xml2js';
+
+
 
 export function addTask(text) {
     return {
@@ -22,20 +25,6 @@ export function count(text) {
 }
 
 
-axios({
-    method: 'get',
-    url: `http://www.part-kom.ru/engine/api/v1/search/parts?number=333114?`,
-        headers: {
-            'Authorization': 'Basic ' + new Buffer('demin' + ':' + 'demin12345').toString('base64'),
-            'Accept': 'application/json',
-            'Content-type': 'application/json'
-        }
-
-})
-.then(function (response) {
-    console.log(response.data);
-})
-
 // axios({
 //     method: 'get',
 //     url: `http://DOMAIN.rossko.ru/service/v1/GetSearch?wsdl`,
@@ -49,12 +38,14 @@ axios({
 // .then(function (response) {
 //     console.log(response.data);
 // })
-
+// var xml;
 // axios({
 //     method: 'post',
-//     url: `http://ptkavto.ru/xmlprice.php?login=europautodz&password=DLi3lj&code=30292&producer=ASAM`,
-//
+//     url: `http://ptkavto.ru/xmlprice.php?login=europautodz&password=DLi3lj&code=kl2`
 // })
 // .then(function (response) {
-//     console.log(response.data);
+//     xml = response.data;
+//     xml2js(xml, function (err, result) {
+//         console.dir(result);
+//     })
 // })

@@ -51,9 +51,11 @@ class TopPannel extends React.Component {
                     { localStorage.getItem('jwtToken') ? guestLinks : userLinks }
                     <div className="top__pannel">
                         <div className="search">
-                            <i title="Поиск" className="fa fa-search" aria-hidden="true"></i>
-                            <input className="input__search" type="text" onChange={inputChange} value={text} placeholder="Введите номер требуемой запчасти" />
-                            <Link to="/directory"><button onClick={SendRequest} >Найти деталь</button></Link>
+                            <form onSubmit={SendRequest}>
+                                <i title="Поиск" className="fa fa-search" aria-hidden="true"></i>
+                                <input className="input__search" type="text" onChange={inputChange} value={text} placeholder="Введите номер требуемой запчасти" />
+                                <Link to="/directory"><button onClick={SendRequest} >Найти деталь</button></Link>
+                            </form>
                         </div>
 
                         <div className="choice">
@@ -67,7 +69,6 @@ class TopPannel extends React.Component {
         );
     }
 }
-
 
 
 function mapStateToProps(state) {
