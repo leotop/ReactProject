@@ -41,7 +41,7 @@ class TopPannel extends React.Component {
         return (
             <div className="logo__container">
                 <div>
-                    <Link to="/">
+                    <Link to="/" onClick={this.props.isAlert}>
         				<img src="../../logo/logo.png" alt="Alt" />
     	                <h1>EuropAuto</h1>
     	                <p>Интернет-магазин автозапчастей</p>
@@ -75,7 +75,10 @@ function mapStateToProps(state) {
     return {
         text: state.handlerapi,
         sendParams: state.TopPannelActions,
-        isAuthorizations: state.authorization
+        isAuthorizations: state.authorization,
+        isAlert: () => {
+            alert();
+        }
     }
 }
 

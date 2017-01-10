@@ -63,17 +63,17 @@ export default (state = initialState, action) => {
 //                 </param>
 //             </message>`;
 
-axios({
-    method: 'post',
-    url: `http://adeo.pro/pricedetals2.php?login=europautodz?password=u32CgV`,
-    headers: {
-        'Content-type': 'text/xml',
-
-    }
-})
-.then(response => {
-    console.log(response.data);
-})
+// axios({
+//     method: 'post',
+//     url: `http://adeo.pro/pricedetals2.php?login=europautodz?password=u32CgV`,
+//     headers: {
+//         'Content-type': 'text/xml',
+//
+//     }
+// })
+// .then(response => {
+//     console.log(response.data);
+// })
 
 // axios({
 //     method: 'post',
